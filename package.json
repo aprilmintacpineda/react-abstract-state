@@ -1,5 +1,5 @@
 {
-  "name": "react-single-store",
+  "name": "react-abstract-state",
   "version": "1.0.0",
   "description": "A clean and simple approach to handling component level states.",
   "main": "lib/index.js",
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aprilmintacpineda/react-single-store.git"
+    "url": "git+https://github.com/aprilmintacpineda/react-abstract-state.git"
   },
   "keywords": [
     "react",
@@ -31,9 +31,9 @@
   "author": "April Mintac Pineda",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/aprilmintacpineda/react-single-store/issues"
+    "url": "https://github.com/aprilmintacpineda/react-abstract-state/issues"
   },
-  "homepage": "https://github.com/aprilmintacpineda/react-single-store#readme",
+  "homepage": "https://github.com/aprilmintacpineda/react-abstract-state#readme",
   "dependencies": {
     "redefine-statics-js": "^2.0.2"
   }

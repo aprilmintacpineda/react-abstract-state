@@ -1,41 +1,16 @@
 import React from 'react';
-import Stateful from './lib';
+import { HashRouter, Route, Switch, Link } from 'react-router-dom';
 
-import removeTodo from './actions/removeTodo';
-import addTodo from './actions/addTodo';
-import inputChanged from './actions/inputChanged';
+import Todos from './routes/Todos';
+import Contact from './routes/Contact';
 
-function App(props) {
-  console.log(props.singleStore);
-
-  return (
+export default () => (
+  <HashRouter>
     <div>
-      <input type="text" value={props.singleStore.input} onChange={props.singleStore.inputChanged} />
-      <button onClick={() => {
-        props.singleStore.addTodo(props.singleStore.input);
-      }}>
-        Click Me
-      </button>
-      <hr />
-      {props.singleStore.todos.map(todo =>
-        <div key={todo.id}>
-          <p>{todo.todo}</p>
-          <button onClick={props.singleStore.removeTodo(todo.id)}>Delete</button>
-        </div>
-      )}
+      <Link to="/">Todos</Link> | <Link to="/contact">Contact</Link>
     </div>
-  );
-}
-
-export default Stateful(
-  App,
-  {
-    todos: [],
-    input: ''
-  },
-  {
-    removeTodo,
-    addTodo,
-    inputChanged
-  }
+    <br />
+    <Route path="/" exact component={Todos} />
+    <Route path="/contact" component={Contact} />
+  </HashRouter>
 );

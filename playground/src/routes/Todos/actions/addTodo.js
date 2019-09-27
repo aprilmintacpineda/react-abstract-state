@@ -1,12 +1,12 @@
 import uuid from 'uuid';
 
-export default (states, setState, todo) => {
+export default (states, setState) => {
   setState({
     ...states,
     input: '',
     todos: states.todos.concat({
       id: uuid(),
-      todo
+      todo: states.input
     })
   });
 };
