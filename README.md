@@ -5,8 +5,8 @@ Check out the `playground` for the sample app. You can also [see the sample proj
 
 # Install
 
-`npm i -S react-abstract-state`
-`yarn add react-abstract-state -S`
+`npm i -S react-abstract-state redefine-statics-js`
+`yarn add react-abstract-state redefine-statics-js -S`
 
 # Why?
 
