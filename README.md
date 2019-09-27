@@ -1,7 +1,7 @@
 # react-abstract-state
 A clean and simple approach to handling component level states.
 
-Check out the `playground` for the sample app.
+Check out the `playground` for the sample app. You can also [see the sample project running](https://aprilmintacpineda.github.io/react-abstract-state).
 
 # Install
 
