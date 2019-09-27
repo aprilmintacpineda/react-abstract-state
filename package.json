@@ -4,6 +4,7 @@
   "description": "A clean and simple approach to handling component level states.",
   "main": "lib/index.js",
   "peerDependencies": {
+    "redefine-statics-js": "^2.0.2",
     "react": "^16.9.0"
   },
   "devDependencies": {
@@ -33,8 +34,5 @@
   "bugs": {
     "url": "https://github.com/aprilmintacpineda/react-abstract-state/issues"
   },
-  "homepage": "https://github.com/aprilmintacpineda/react-abstract-state#readme",
-  "dependencies": {
-    "redefine-statics-js": "^2.0.2"
-  }
+  "homepage": "https://github.com/aprilmintacpineda/react-abstract-state#readme"
 }
