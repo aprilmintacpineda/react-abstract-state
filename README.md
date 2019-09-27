@@ -69,60 +69,6 @@ export default class Todos extends React.Component {
 }
 ```
 
-Or using hooks
-
-```jsx
-import React from 'react';
-
-function Todos () {
-  const [state, setState] = React.useState({
-    input: '',
-    todos: []
-  });
-
-  const addTodo = React.useCallback(targetTodoId => () => {
-    setState({
-      ...state,
-      todos: state.todos.filter(todo => todo.id !== targetTodoId)
-    });
-  });
-
-  const removeTodo = React.useCallback(() => {
-    setState({
-      ...state,
-      input: '',
-      todos: state.todos.concat({
-        id: uuid(),
-        todo: state.input
-      });
-    });
-  });
-
-  const inputChanged = React.useCallback(ev => {
-    setState({
-      ...state,
-      input: ev.target.value
-    });
-  });
-
-  return (
-    <div>
-      <input type="text" value={state.input} onChange={inputChanged} />
-      <button onClick={addTodo}>Add todo</button>
-      <hr />
-      {state.todos.map(todo =>
-        <div key={todo.id}>
-          <p>{todo.todo}</p>
-          <button onClick={removeTodo(todo.id)}>Delete</button>
-        </div>
-      )}
-    </div>
-  );
-}
-```
-
-Either approach you use, it will become long and dirty.
-
 #### The solution
 
 A cleaner approach would be to to separate these things into `modules`. There are really 3 things in here, namely:
@@ -169,21 +115,21 @@ import addTodo from './actions/addTodo';
 import inputChanged from './actions/inputChanged';
 
 function Todos(props) {
-  console.log(props.abstractState);
+  console.log(props);
 
   // now our component only needs to handle UI logic.
   // Everything else can be abstracted outside.
   return (
     <div>
-      <input type="text" value={props.abstractState.input} onChange={props.abstractState.inputChanged} />
-      <button onClick={props.abstractState.addTodo}>
+      <input type="text" value={props.input} onChange={props.inputChanged} />
+      <button onClick={props.addTodo}>
         Add todo
       </button>
       <hr />
-      {props.abstractState.todos.map(todo =>
+      {props.todos.map(todo =>
         <div key={todo.id}>
           <p>{todo.todo}</p>
-          <button onClick={props.abstractState.removeTodo(todo.id)}>Delete</button>
+          <button onClick={props.removeTodo(todo.id)}>Delete</button>
         </div>
       )}
     </div>
@@ -192,7 +138,7 @@ function Todos(props) {
 
 // this is the HOC that handles the abstraction for you,
 // All the actions and states will be available on the component
-// via props.abstractState
+// via props
 export default stateful(
   Todos, // the component
   state, // the states
@@ -345,3 +291,7 @@ export default stateful(
     }
   }
 );
+
+#### useReducer hook
+
+Alternatively, you can use `useReducer` hook and implement the same pattern.

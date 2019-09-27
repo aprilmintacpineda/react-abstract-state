@@ -36,9 +36,7 @@ var _default = function _default(WrappedComponent, state, actions) {
     });
 
     this.render = function () {
-      return _react["default"].createElement(WrappedComponent, _extends({}, _this.props, {
-        singleStore: _extends({}, _this.state, {}, _actions)
-      }));
+      return _react["default"].createElement(WrappedComponent, _extends({}, _this.props, _this.state, _actions));
     };
 
     return this;
