@@ -1,6 +1,6 @@
 {
   "name": "react-abstract-state",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A clean and simple approach to handling component level states.",
   "main": "lib/index.js",
   "peerDependencies": {
