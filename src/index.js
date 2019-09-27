@@ -23,7 +23,7 @@ export default (WrappedComponent, state, actions) => {
     this.render = () => (
       <WrappedComponent
         {...this.props}
-        singleStore={{ ...this.state, ..._actions }}
+        abstractState={{ ...this.state, ..._actions }}
       />
     );
 

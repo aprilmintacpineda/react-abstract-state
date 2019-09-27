@@ -169,21 +169,21 @@ import addTodo from './actions/addTodo';
 import inputChanged from './actions/inputChanged';
 
 function Todos(props) {
-  console.log(props.singleStore);
+  console.log(props.abstractState);
 
   // now our component only needs to handle UI logic.
   // Everything else can be abstracted outside.
   return (
     <div>
-      <input type="text" value={props.singleStore.input} onChange={props.singleStore.inputChanged} />
-      <button onClick={props.singleStore.addTodo}>
+      <input type="text" value={props.abstractState.input} onChange={props.abstractState.inputChanged} />
+      <button onClick={props.abstractState.addTodo}>
         Add todo
       </button>
       <hr />
-      {props.singleStore.todos.map(todo =>
+      {props.abstractState.todos.map(todo =>
         <div key={todo.id}>
           <p>{todo.todo}</p>
-          <button onClick={props.singleStore.removeTodo(todo.id)}>Delete</button>
+          <button onClick={props.abstractState.removeTodo(todo.id)}>Delete</button>
         </div>
       )}
     </div>
@@ -192,7 +192,7 @@ function Todos(props) {
 
 // this is the HOC that handles the abstraction for you,
 // All the actions and states will be available on the component
-// via props.singleStore
+// via props.abstractState
 export default stateful(
   Todos, // the component
   state, // the states
